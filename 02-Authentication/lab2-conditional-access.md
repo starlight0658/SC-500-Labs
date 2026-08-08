@@ -40,6 +40,10 @@ Grant access was configured to require:
 
 Report-only mode was used so that the policy could be evaluated without actually enforcing the authentication requirement or blocking the test user.
 
+### Screenshot - Conditional Access Policy
+
+![Conditional Access policy configured in Report-only mode](screenshots/conditional-access-policy.png)
+
 ## Testing
 
 The SC500 Student account signed in to Microsoft My Apps.
@@ -59,6 +63,10 @@ The Conditional Access policy returned:
 This indicates that the policy matched the sign-in, but the user's current authentication method did not satisfy the phishing-resistant MFA authentication strength.
 
 If the policy had been enabled, the user would have been required to perform additional phishing-resistant authentication before access was granted.
+
+### Screenshot - Report-only Result
+
+![Conditional Access report-only result showing user action required](screenshots/report-only-result.png)
 
 ## What I Learned
 
