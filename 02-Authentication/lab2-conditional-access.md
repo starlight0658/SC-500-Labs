@@ -68,6 +68,34 @@ If the policy had been enabled, the user would have been required to perform add
 
 ![Conditional Access report-only result showing user action required](screenshots/report-only-result.png)
 
+## Passkey Validation
+
+A synced passkey was registered for the SC500 Student account using iCloud Keychain.
+
+The new authentication method appeared in the sign-in logs as:
+
+`Passkey (synced)`
+
+The authentication succeeded.
+
+After using the passkey to sign in again, the Conditional Access policy evaluation changed from:
+
+`Report-only: User action required`
+
+to:
+
+`Report-only: Success`
+
+This confirmed that the synced passkey satisfied the policy's phishing-resistant MFA authentication strength requirement.
+
+### Passkey Authentication Result
+
+![Passkey synced authentication succeeded](screenshots/passkey-synced-success.png)
+
+### Conditional Access Success
+
+![Conditional Access report-only success with phishing-resistant authentication](screenshots/report-only-passkey-success.png)
+
 ## What I Learned
 
 * Conditional Access determines when access controls should be applied.
