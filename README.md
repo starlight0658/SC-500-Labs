@@ -71,7 +71,7 @@ End-to-end AI security lab combining Microsoft Foundry with Defender for Cloud:
 | [02 — Authentication](./02-Authentication/) | Authentication & risk | Conditional Access, TAP, sign-in risk, user risk, trusted locations, device controls, sign-in frequency |
 | [03 — Conditional Access](./03-Conditional-Access/) | Access policy | Conditional Access policy practice and documentation |
 | [04 — PIM](./04-PIM/) | Privileged identity | Privileged access and least-privilege administration |
-| [Supplemental — Key Vault Monitoring](./04-key-vault-monitoring/) | Monitoring | Key Vault security monitoring lab |
+| [Supplemental — Key Vault Monitoring](./04B-Key-Vault-Monitoring/) | Monitoring | Key Vault security monitoring lab |
 | [05 — Workload Identities](./05-Workload-Identities/) | Non-human identity | Managed identity, service principals, app registrations, credentials, API permissions |
 | [06 — Network Security](./06-Network-Security/) | Azure networking | VNets, NSGs, Private Endpoints, UDRs, Private DNS, troubleshooting |
 | [07 — Defender for Cloud](./07-Defender-for-Cloud/) | CSPM / workload protection | Secure Score, compliance, Defender for Servers, vulnerability assessment, JIT, alerts, automation |
