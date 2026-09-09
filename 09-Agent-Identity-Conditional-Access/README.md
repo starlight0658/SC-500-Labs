@@ -1,5 +1,6 @@
 # Microsoft Entra Agent Identity and Risk-Based Conditional Access
 
+> **Portfolio note:** This is a standalone project/module. Its numbering is canonical and is not part of the historical Lab 1–29 sequence.
 ## Overview
 
 This lab demonstrates identity governance and Conditional Access controls for AI agent identities in Microsoft Entra.

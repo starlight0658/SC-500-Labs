@@ -1,5 +1,6 @@
 # Azure Key Vault Private Endpoint and Network Hardening
 
+> **Portfolio note:** This is a standalone project/module. Its numbering is canonical and is not part of the historical Lab 1–29 sequence.
 ## Overview
 
 This lab demonstrates how to harden Azure Key Vault network access by replacing public data-plane access with an Azure Private Endpoint.

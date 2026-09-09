@@ -1,0 +1,13 @@
+// Successful Key Vault secret read operations
+AzureDiagnostics
+| where ResourceProvider =~ "MICROSOFT.KEYVAULT"
+| where OperationName in ("SecretGet", "SecretResourceGet")
+| where ResultType == "Success"
+| project TimeGenerated, Resource, OperationName, ResultType, CallerIPAddress
+| order by TimeGenerated desc
+
+// Review Key Vault activity by operation and result
+AzureDiagnostics
+| where ResourceProvider =~ "MICROSOFT.KEYVAULT"
+| summarize Events=count() by OperationName, ResultType
+| order by Events desc

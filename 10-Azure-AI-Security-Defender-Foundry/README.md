@@ -1,5 +1,6 @@
 # Azure AI Security with Microsoft Foundry and Defender for Cloud
 
+> **Portfolio note:** This is a standalone project/module. Its numbering is canonical and is not part of the historical Lab 1–29 sequence.
 ## Overview
 
 This lab demonstrates a practical Azure AI security workflow using **Microsoft Foundry**, **Microsoft Defender for Cloud**, **Defender CSPM**, and **Foundry Guardrails**.

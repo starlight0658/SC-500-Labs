@@ -1,8 +1,11 @@
-# macOS
 .DS_Store
-
-# VS Code
-.vscode/
-
-# Log files
+Thumbs.db
+*.tmp
 *.log
+.env
+.env.*
+secrets/
+private/
+*.pem
+*.pfx
+*.key
