@@ -1,111 +1,174 @@
 # Microsoft Identity, Cloud & AI Security Portfolio
 
-Hands-on Microsoft security labs covering **Entra ID, authentication, Conditional Access, PIM, workload identities, Azure networking, Key Vault, Defender for Cloud, agent identities, and Azure AI security**.
+Hands-on security engineering labs covering **Microsoft Entra ID, Conditional Access, privileged access, workload identities, Azure network security, Key Vault, Microsoft Defender for Cloud, agent identity, and Microsoft Foundry AI security**.
 
-This repository preserves the original detailed SC-500 exercises (**Labs 1–29**) and adds newer module-level portfolio projects and sanitized evidence. The detailed lab files are retained as technical build records; each module `README.md` provides a recruiter-friendly security and governance summary.
+This repository began as SC-500 study work and has grown into a practical portfolio focused on **identity-first security, cloud posture management, governance, least privilege, and modern AI security controls**. Each major module documents the configuration, validation steps, screenshots, troubleshooting, and security lessons from a real Azure lab environment.
 
-**Portfolio model:** Scenario → Risk → Control → Implementation → Validation → Evidence → GRC relevance
-
-> **Portfolio direction:** IAM / identity governance · GRC-aligned controls · Azure security · Defender · AI security
+> **Portfolio focus:** IAM / Entra ID · Conditional Access · GRC-aligned controls · Azure security · Defender for Cloud · AI security
 
 ---
 
-## Module index
+## Featured Projects
 
-| Module | Project | Main controls / evidence |
+### 09 — Agent Identity & Conditional Access
+
+[View project →](./09-Agent-Identity-Conditional-Access/)
+
+Built and validated Conditional Access controls for Microsoft Entra **agent identities**, including:
+
+- Microsoft Agent 365 licensing and agent identity discovery
+- Conditional Access targeting **all agent identities**
+- **Agent risk (Preview)** as a policy condition
+- High-risk agent activity configured to **Block access**
+- Safe deployment using **Report-only** mode
+- Policy validation, inventory evidence, and audit-oriented documentation
+
+**Security themes:** non-human identity governance, conditional access, least privilege, risk-based controls, policy rollout.
+
+---
+
+### 10 — Azure AI Security with Microsoft Foundry & Defender CSPM
+
+[View project →](./10-Azure-AI-Security-Defender-Foundry/)
+
+End-to-end AI security lab combining Microsoft Foundry with Defender for Cloud:
+
+- Deployed a **GPT-5.4-mini** model endpoint in Microsoft Foundry
+- Generated and monitored live inference traffic
+- Validated benign prompts and **jailbreak / prompt-injection blocking** through Foundry Guardrails
+- Captured deployment telemetry in Foundry Monitor
+- Enabled **Defender CSPM** and AI workload protection capabilities
+- Verified Defender discovery of Foundry resources and the model deployment
+- Queried the **Cloud Security Explorer security graph** to identify the model-to-endpoint relationship
+- Documented Defender ingestion delay / eventual-consistency troubleshooting
+
+**Security themes:** AI governance, prompt security, runtime controls, CSPM, asset discovery, graph-based investigation, secure deployment validation.
+
+---
+
+### 11 — Defender for Cloud Security Posture & Recommendations
+
+[View project →](./11-Defender-Cloud-Security-Posture/)
+
+Reviewed live Defender for Cloud recommendations across Linux VM, AI/Foundry, Key Vault, Logic App, storage, and network resources; translated findings into a risk-to-remediation workflow.
+
+**Security themes:** CSPM, vulnerability management, attack-surface reduction, remediation governance.
+
+### 12 — File Integrity Monitoring
+
+[View project →](./12-File-Integrity-Monitoring/)
+
+Validated host file-change monitoring on `vm-sc500-linux`, including a controlled `/etc/` file modification with process, account, path, and cryptographic hash evidence.
+
+**Security themes:** integrity monitoring, detective controls, host telemetry, audit evidence.
+
+### 13 — Azure Policy Governance
+
+[View project →](./13-Azure-Policy-Governance/)
+
+Implemented and validated Azure Policy controls for centralized logging, tag inheritance, storage auditing, and anonymous blob-access enforcement, including completed remediation tasks.
+
+**Security themes:** policy-as-code, compliance, preventive/detective/corrective controls, evidence and remediation.
+
+### 14 — Sentinel Governance Automation
+
+[View project →](./14-Sentinel-Governance-Automation/)
+
+Built an end-to-end Sentinel workflow that detects Azure diagnostic-setting changes, creates incidents, and invokes a Logic App playbook to add governance-review instructions automatically.
+
+**Security themes:** KQL, Sentinel analytics, MITRE ATT&CK, SOAR, Logic Apps, change governance.
+
+---
+
+## What This Portfolio Demonstrates
+
+| Area | Hands-on experience represented in this repo |
+|---|---|
+| **Identity & Access Management** | Entra ID, Azure RBAC, authentication, Conditional Access, privileged access, workload identities |
+| **Authentication Security** | MFA-related controls, Temporary Access Pass, sign-in risk, user risk, trusted locations, device conditions |
+| **Privileged Access** | Microsoft Entra Privileged Identity Management (PIM) and least-privilege concepts |
+| **Workload Identity** | Managed identities, app registrations, service principals, client secrets, API permissions, admin consent |
+| **Network Security** | VNets, subnet segmentation, NSGs, Private Link, Private Endpoints, Private DNS, UDRs, troubleshooting |
+| **Secrets & Key Management** | Azure Key Vault, private endpoint hardening, network isolation, access validation |
+| **Cloud Security Posture** | Defender for Cloud, Secure Score, recommendations, regulatory compliance, vulnerability assessment |
+| **Detection & Response** | Defender alerts, MITRE ATT&CK context, workflow automation, investigation and remediation workflows |
+| **Agent / AI Security** | Agent identities, agent-risk Conditional Access, Microsoft Foundry, Guardrails, Defender CSPM AI discovery |
+| **Security Documentation** | Validation notes, screenshots, troubleshooting records, cleanup plans, reproducible lab evidence |
+
+---
+
+## Lab Index
+
+| Module | Focus | Key topics |
 |---|---|---|
-| [01](01-Entra-ID/) | Entra ID Identity Foundation | Lab 1 Azure RBAC, identity inventory, governance foundation |
-| [02](02-Authentication/) | Authentication Security | Labs 2–9: Conditional Access, TAP, sign-in/user risk, trusted locations, device/platform controls, session controls |
-| [03](03-Conditional-Access/) | Conditional Access | policy design, report-only rollout, contextual access |
-| [04](04-PIM/) | Privileged Identity Management | Labs 10–14 plus time-bound service-principal privilege, access review, attestation |
-| [04B](04B-Key-Vault-Monitoring/) | Key Vault Monitoring | diagnostics, Log Analytics/KQL, secret-access alert validation |
-| [05](05-Workload-Identities/) | Workload Identity Governance | Labs 15–18 plus service-principal risk, workload CA, PIM, access review, credential lifecycle |
-| [06](06-Network-Security/) | Network Security | Labs 19–23 plus NSG/JIT/private networking evidence |
-| [07](07-Defender-for-Cloud/) | Defender for Cloud | Labs 24–29 plus posture, alert investigation, Logic App workflow automation |
-| [08](08-Key-Vault-Private-Endpoint/) | Key Vault Private Endpoint | Private Link, Private DNS, public-access lockdown, positive/negative validation |
-| [09](09-Agent-Identity-Conditional-Access/) | Agent Identity Conditional Access | agent governance, agent risk, report-only blocking |
-| [10](10-Azure-AI-Security-Defender-Foundry/) | Azure AI Security | Foundry, guardrails, Defender CSPM, AI asset discovery and security graph |
+| [01 — Entra ID](./01-Entra-ID/) | Identity foundation | Azure RBAC, identity notes |
+| [02 — Authentication](./02-Authentication/) | Authentication & risk | Conditional Access, TAP, sign-in risk, user risk, trusted locations, device controls, sign-in frequency |
+| [03 — Conditional Access](./03-Conditional-Access/) | Access policy | Conditional Access policy practice and documentation |
+| [04 — PIM](./04-PIM/) | Privileged identity | Privileged access and least-privilege administration |
+| [Supplemental — Key Vault Monitoring](./04-key-vault-monitoring/) | Monitoring | Key Vault security monitoring lab |
+| [05 — Workload Identities](./05-Workload-Identities/) | Non-human identity | Managed identity, service principals, app registrations, credentials, API permissions |
+| [06 — Network Security](./06-Network-Security/) | Azure networking | VNets, NSGs, Private Endpoints, UDRs, Private DNS, troubleshooting |
+| [07 — Defender for Cloud](./07-Defender-for-Cloud/) | CSPM / workload protection | Secure Score, compliance, Defender for Servers, vulnerability assessment, JIT, alerts, automation |
+| [08 — Key Vault Private Endpoint](./08-Key-Vault-Private-Endpoint/) | Network hardening | Private Link, Private DNS, public-access lockdown, connectivity validation |
+| [09 — Agent Identity Conditional Access](./09-Agent-Identity-Conditional-Access/) | Agent governance | Agent identity, agent risk, Conditional Access, report-only rollout |
+| [10 — Azure AI Security](./10-Azure-AI-Security-Defender-Foundry/) | AI security | Foundry, GPT deployment, Guardrails, monitoring, Defender CSPM, AI discovery, security graph |
+| [11 — Defender Security Posture](./11-Defender-Cloud-Security-Posture/) | CSPM / remediation | Defender recommendations, Linux vulnerabilities, AI/Foundry exposure, remediation prioritization |
+| [12 — File Integrity Monitoring](./12-File-Integrity-Monitoring/) | Integrity monitoring | Linux FIM, file-change evidence, process/account attribution, hashes |
+| [13 — Azure Policy Governance](./13-Azure-Policy-Governance/) | GRC / policy | Azure Policy compliance, remediation, tag governance, storage controls |
+| [14 — Sentinel Governance Automation](./14-Sentinel-Governance-Automation/) | Detection & automation | AzureActivity, KQL, analytics rule, incident automation, Logic App playbook |
 
 ---
 
-## Original detailed labs retained
+## Selected Technical Highlights
 
-The historical exercise numbering is intentionally preserved rather than renumbered:
+### Identity-first controls
 
-- **Lab 1** — Azure RBAC (`01-Entra-ID`)
-- **Labs 2–9** — Authentication and risk-based Conditional Access (`02-Authentication`)
-- **Labs 10–14** — PIM and privileged-access workflows (`04-PIM`)
-- **Labs 15–18** — Workload identity fundamentals (`05-Workload-Identities`)
-- **Labs 19–23** — Azure network security (`06-Network-Security`)
-- **Labs 24–29** — Microsoft Defender for Cloud (`07-Defender-for-Cloud`)
+The labs use identity and access policy as primary security controls rather than relying only on perimeter defenses. Examples include risk-based Conditional Access, managed identities, PIM, RBAC, service principals, and agent identities.
 
-`03-Conditional-Access` is a module-level policy summary rather than a separately numbered historical exercise. `04B` and Modules `08–10` are later standalone portfolio projects.
+### Safe policy rollout
+
+Potentially disruptive Conditional Access controls are documented in **Report-only** mode before enforcement. This mirrors a safer enterprise change-management workflow: define scope, validate impact, review evidence, then enforce.
+
+### Private-access validation
+
+The Key Vault hardening lab demonstrates a complete private-access path using **Private Endpoint + Private DNS**, followed by disabling public network access and validating that the Azure VM can still reach the vault over the private path.
+
+### Cloud posture and investigation
+
+Defender for Cloud labs cover posture management, recommendations, regulatory compliance, vulnerability assessment, alerts, remediation, and security-graph investigation.
+
+### AI security beyond model deployment
+
+The AI lab goes beyond simply provisioning a model. It validates **guardrails, runtime activity, Defender discovery, asset relationships, and Cloud Security Explorer graph queries** to demonstrate how generative-AI workloads can be governed and investigated in Azure.
 
 ---
 
-## Featured project — Workload Identity Governance
+## Repository Structure
 
-The workload identity module follows a non-human identity through an end-to-end governance lifecycle:
+Most modules contain some combination of:
 
 ```text
-App registration
-  -> Microsoft Graph application permission
-  -> Workload Identity Conditional Access
-  -> high service-principal risk blocking
-  -> time-bound PIM role assignment
-  -> access review + attestation
-  -> temporary client credential
-  -> credential removal + audit evidence
+README.md
+validation-notes.md
+cleanup.md
+screenshots/
+lab*.md
 ```
 
-This demonstrates practical controls for service principals and applications alongside human identities.
+The documentation is designed to show not only *what* was configured, but also **why the control matters, how it was validated, what failed during testing, and how the issue was resolved**.
 
 ---
 
-## Featured project — Defender alert automation
+## Security & Privacy Practices
 
-The Defender module proves a complete detection-to-response path:
-
-```text
-Defender finding
-  -> high-severity alert
-  -> workflow automation
-  -> Azure Logic App
-  -> successful response action
-  -> run-history evidence
-```
+- No passwords, access keys, API keys, client secrets, or authentication tokens are intentionally committed.
+- Screenshots are selected or redacted to reduce exposure of personal and tenant-identifying information.
+- Potentially disruptive controls are tested safely before enforcement where the platform supports it.
+- Paid Azure resources are documented with cleanup steps to reduce unnecessary ongoing cost.
+- These labs are educational portfolio environments, not production reference architectures.
 
 ---
 
-## Skills represented
+## Current Direction
 
-- Microsoft Entra ID and Azure RBAC
-- Conditional Access and risk-based access
-- MFA and authentication strength
-- Privileged Identity Management and access reviews
-- Service principals and workload identities
-- Microsoft Graph application permissions and admin consent
-- Credential lifecycle governance
-- Azure networking, NSGs, JIT, Private Link and Private DNS
-- Azure Key Vault
-- Log Analytics and KQL
-- Azure Monitor alerts
-- Microsoft Defender for Cloud
-- Azure Logic Apps security automation
-- Microsoft Entra agent identities
-- Microsoft Foundry / Azure AI security
-- audit-log validation, control testing, remediation evidence, and security documentation
-
----
-
-## Security & privacy
-
-Screenshots added in the newer portfolio modules are sanitized copies. Browser/account chrome is cropped where practical and tenant/account identifiers are masked where needed. No client-secret value, password, API key, token, or other credential is intentionally included.
-
-The original detailed exercise evidence is preserved because it represents the work already completed; before publishing any newly added screenshots, follow [`SANITIZATION.md`](SANITIZATION.md).
-
----
-
-## Repository use
-
-These projects document a personal training environment. They demonstrate security reasoning, implementation, validation, troubleshooting, and evidence collection; they are not production reference architectures.
+The portfolio is continuing to expand around **Microsoft identity security, cloud governance, Defender, AI security, and practical controls relevant to IAM / GRC / cloud-security roles**.
