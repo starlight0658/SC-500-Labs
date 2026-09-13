@@ -78,6 +78,21 @@ Built an end-to-end Sentinel workflow that detects Azure diagnostic-setting chan
 
 **Security themes:** KQL, Sentinel analytics, MITRE ATT&CK, SOAR, Logic Apps, change governance.
 
+
+### 15 — Regulatory Compliance Remediation & GRC Evidence Validation
+
+[View project →](./15-Regulatory-Compliance-GRC/)
+
+Closed the loop on a real Microsoft Defender for Cloud compliance finding mapped to **MCSB LT-3 — Enable logging for security investigation**:
+
+- Identified a failed Logic Apps diagnostic-logging assessment
+- Enabled workflow runtime logs and metrics to a central Log Analytics / Sentinel workspace
+- Troubleshot missing telemetry by enabling the `LogicAppsManagement` workspace pack
+- Validated six Logic App `WorkflowRuntime` events with KQL
+- Reassessed the compliance recommendation and documented the remaining finding on a separate Logic App
+
+**Security themes:** regulatory compliance, GRC evidence, centralized logging, KQL validation, residual-risk documentation, control remediation.
+
 ---
 
 ## What This Portfolio Demonstrates
@@ -90,7 +105,7 @@ Built an end-to-end Sentinel workflow that detects Azure diagnostic-setting chan
 | **Workload Identity** | Managed identities, app registrations, service principals, client secrets, API permissions, admin consent |
 | **Network Security** | VNets, subnet segmentation, NSGs, Private Link, Private Endpoints, Private DNS, UDRs, troubleshooting |
 | **Secrets & Key Management** | Azure Key Vault, private endpoint hardening, network isolation, access validation |
-| **Cloud Security Posture** | Defender for Cloud, Secure Score, recommendations, regulatory compliance, vulnerability assessment |
+| **Cloud Security Posture** | Defender for Cloud, Secure Score, recommendations, regulatory compliance, control remediation, evidence validation, vulnerability assessment |
 | **Detection & Response** | Defender alerts, MITRE ATT&CK context, workflow automation, investigation and remediation workflows |
 | **Agent / AI Security** | Agent identities, agent-risk Conditional Access, Microsoft Foundry, Guardrails, Defender CSPM AI discovery |
 | **Security Documentation** | Validation notes, screenshots, troubleshooting records, cleanup plans, reproducible lab evidence |
@@ -116,6 +131,7 @@ Built an end-to-end Sentinel workflow that detects Azure diagnostic-setting chan
 | [12 — File Integrity Monitoring](./12-File-Integrity-Monitoring/) | Integrity monitoring | Linux FIM, file-change evidence, process/account attribution, hashes |
 | [13 — Azure Policy Governance](./13-Azure-Policy-Governance/) | GRC / policy | Azure Policy compliance, remediation, tag governance, storage controls |
 | [14 — Sentinel Governance Automation](./14-Sentinel-Governance-Automation/) | Detection & automation | AzureActivity, KQL, analytics rule, incident automation, Logic App playbook |
+| [15 — Regulatory Compliance GRC](./15-Regulatory-Compliance-GRC/) | GRC / compliance validation | MCSB LT-3, Defender compliance finding, Logic App diagnostics, Log Analytics, KQL evidence, residual risk |
 
 ---
 
